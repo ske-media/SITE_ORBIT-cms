@@ -1,9 +1,9 @@
 module.exports = ({ env }) => {
-  console.log('JWT_SECRET =>', env('JWT_SECRET'));
+  console.log('JWT_SECRET =>', env('JWTSECRET'));
   return {
     'users-permissions': {
       config: {
-        jwtSecret: env('JWT_SECRET', 'fallback-secret'),
+        jwtSecret: env('JWTSECRET', 'fallback-secret'),
       },
     },
   };
