@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  db:
+    image: supabase/postgres:14.1.0
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: postgres
+    command: postgres -c config_file=/etc/postgresql/postgresql.conf
+    volumes:
+      - supabase-db:/var/lib/postgresql/data
+
+volumes:
+  supabase-db:
