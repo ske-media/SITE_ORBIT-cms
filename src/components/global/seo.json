@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_global_seos",
+  "info": {
+    "displayName": "SEO",
+    "icon": "earth"
+  },
+  "options": {},
+  "attributes": {
+    "meta_title": {
+      "type": "string"
+    },
+    "meta_description": {
+      "type": "text"
+    },
+    "meta_image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

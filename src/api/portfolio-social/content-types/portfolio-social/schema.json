@@ -1,0 +1,92 @@
+{
+  "kind": "collectionType",
+  "collectionName": "portfolio_socials",
+  "info": {
+    "singularName": "portfolio-social",
+    "pluralName": "portfolio-socials",
+    "displayName": "Portfolio - Réseaux Sociaux",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Titre": {
+      "type": "string"
+    },
+    "Slug": {
+      "type": "uid"
+    },
+    "Short_description": {
+      "type": "string"
+    },
+    "Main_image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Tech_stack": {
+      "type": "string"
+    },
+    "Date": {
+      "type": "date"
+    },
+    "URL": {
+      "type": "string",
+      "regex": "^https?:\\/\\/[\\w.-]+\\.[a-z]{2,}.*$"
+    },
+    "Client": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "blocks"
+    },
+    "Client_review": {
+      "type": "blocks"
+    },
+    "Featured": {
+      "type": "boolean"
+    },
+    "SEO": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global.seo"
+    },
+    "plateforme_sociales": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::plateforme-sociale.plateforme-sociale",
+      "inversedBy": "portfolio_reseaux_sociauxes"
+    },
+    "Service_type": {
+      "type": "enumeration",
+      "enum": [
+        "Stratégie",
+        "Design",
+        "Copywriting",
+        "Montage Vidéo",
+        "Édition Photo"
+      ]
+    },
+    "Results": {
+      "type": "blocks"
+    }
+  }
+}

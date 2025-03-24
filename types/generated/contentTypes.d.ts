@@ -405,6 +405,210 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiPlateformeSocialePlateformeSociale
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'plateforme_sociales';
+  info: {
+    displayName: 'Plateforme Sociale';
+    pluralName: 'plateforme-sociales';
+    singularName: 'plateforme-sociale';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Color: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::plateforme-sociale.plateforme-sociale'
+    > &
+      Schema.Attribute.Private;
+    Logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    Name: Schema.Attribute.String;
+    portfolio_reseaux_sociauxes: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::portfolio-social.portfolio-social'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPortfolioAppPortfolioApp
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'portfolio_apps';
+  info: {
+    description: '';
+    displayName: 'Portfolio - App';
+    pluralName: 'portfolio-apps';
+    singularName: 'portfolio-app';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Categorie: Schema.Attribute.Enumeration<
+      [
+        'Gestion RH & Employ\u00E9s',
+        'Gestion administrative',
+        'Logistique & Production',
+        'Pilotage & Reporting',
+        'Applications m\u00E9tier sp\u00E9cifiques',
+        'Vente & commerce',
+        'Marketing & Promotion',
+      ]
+    >;
+    Client: Schema.Attribute.String;
+    Client_review: Schema.Attribute.Blocks;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Date: Schema.Attribute.Date;
+    Description: Schema.Attribute.Blocks;
+    Featured: Schema.Attribute.Boolean;
+    Images: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::portfolio-app.portfolio-app'
+    > &
+      Schema.Attribute.Private;
+    Main_image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    SEO: Schema.Attribute.Component<'global.seo', false>;
+    Short_description: Schema.Attribute.String;
+    Slug: Schema.Attribute.UID;
+    Tech_stack: Schema.Attribute.String;
+    Titre: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    URL: Schema.Attribute.String;
+  };
+}
+
+export interface ApiPortfolioSiteWebPortfolioSiteWeb
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'portfolio_site_webs';
+  info: {
+    description: '';
+    displayName: 'Portfolio \u2013 Site Web';
+    pluralName: 'portfolio-site-webs';
+    singularName: 'portfolio-site-web';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Client: Schema.Attribute.String;
+    Client_review: Schema.Attribute.Blocks;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Date: Schema.Attribute.Date;
+    Description: Schema.Attribute.Blocks;
+    Featured: Schema.Attribute.Boolean;
+    Images: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::portfolio-site-web.portfolio-site-web'
+    > &
+      Schema.Attribute.Private;
+    Main_image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    SEO: Schema.Attribute.Component<'global.seo', false>;
+    Short_description: Schema.Attribute.String;
+    Site_type: Schema.Attribute.Enumeration<
+      ['Vitrine', 'E-commerce', 'R\u00E9servation en Ligne', 'Espace Membre']
+    >;
+    Slug: Schema.Attribute.UID;
+    Tech_stack: Schema.Attribute.String;
+    Titre: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    url: Schema.Attribute.String;
+  };
+}
+
+export interface ApiPortfolioSocialPortfolioSocial
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'portfolio_socials';
+  info: {
+    description: '';
+    displayName: 'Portfolio - R\u00E9seaux Sociaux';
+    pluralName: 'portfolio-socials';
+    singularName: 'portfolio-social';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Client: Schema.Attribute.String;
+    Client_review: Schema.Attribute.Blocks;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Date: Schema.Attribute.Date;
+    Description: Schema.Attribute.Blocks;
+    Featured: Schema.Attribute.Boolean;
+    Images: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::portfolio-social.portfolio-social'
+    > &
+      Schema.Attribute.Private;
+    Main_image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    plateforme_sociales: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::plateforme-sociale.plateforme-sociale'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    Results: Schema.Attribute.Blocks;
+    SEO: Schema.Attribute.Component<'global.seo', false>;
+    Service_type: Schema.Attribute.Enumeration<
+      [
+        'Strat\u00E9gie',
+        'Design',
+        'Copywriting',
+        'Montage Vid\u00E9o',
+        '\u00C9dition Photo',
+      ]
+    >;
+    Short_description: Schema.Attribute.String;
+    Slug: Schema.Attribute.UID;
+    Tech_stack: Schema.Attribute.String;
+    Titre: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    URL: Schema.Attribute.String;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -915,6 +1119,10 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::article.article': ApiArticleArticle;
+      'api::plateforme-sociale.plateforme-sociale': ApiPlateformeSocialePlateformeSociale;
+      'api::portfolio-app.portfolio-app': ApiPortfolioAppPortfolioApp;
+      'api::portfolio-site-web.portfolio-site-web': ApiPortfolioSiteWebPortfolioSiteWeb;
+      'api::portfolio-social.portfolio-social': ApiPortfolioSocialPortfolioSocial;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

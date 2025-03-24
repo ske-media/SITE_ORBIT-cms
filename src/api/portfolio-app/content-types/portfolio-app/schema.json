@@ -1,0 +1,85 @@
+{
+  "kind": "collectionType",
+  "collectionName": "portfolio_apps",
+  "info": {
+    "singularName": "portfolio-app",
+    "pluralName": "portfolio-apps",
+    "displayName": "Portfolio - App",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Titre": {
+      "type": "string"
+    },
+    "Slug": {
+      "type": "uid"
+    },
+    "Short_description": {
+      "type": "string"
+    },
+    "Main_image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Tech_stack": {
+      "type": "string"
+    },
+    "Date": {
+      "type": "date"
+    },
+    "URL": {
+      "type": "string",
+      "regex": "^https?:\\/\\/[\\w.-]+\\.[a-z]{2,}.*$"
+    },
+    "Client": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "blocks"
+    },
+    "Client_review": {
+      "type": "blocks"
+    },
+    "Featured": {
+      "type": "boolean"
+    },
+    "SEO": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global.seo"
+    },
+    "Categorie": {
+      "type": "enumeration",
+      "enum": [
+        "Gestion RH & Employés",
+        "Gestion administrative",
+        "Logistique & Production",
+        "Pilotage & Reporting",
+        "Applications métier spécifiques",
+        "Vente & commerce",
+        "Marketing & Promotion"
+      ]
+    }
+  }
+}

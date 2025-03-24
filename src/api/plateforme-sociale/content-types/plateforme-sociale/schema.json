@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "plateforme_sociales",
+  "info": {
+    "singularName": "plateforme-sociale",
+    "pluralName": "plateforme-sociales",
+    "displayName": "Plateforme Sociale"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Logo": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Color": {
+      "type": "string"
+    },
+    "portfolio_reseaux_sociauxes": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::portfolio-social.portfolio-social",
+      "mappedBy": "plateforme_sociales"
+    }
+  }
+}
