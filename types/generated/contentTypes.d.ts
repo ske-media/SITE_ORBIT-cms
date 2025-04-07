@@ -609,6 +609,55 @@ export interface ApiPortfolioSocialPortfolioSocial
   };
 }
 
+export interface ApiSeoSeo extends Struct.CollectionTypeSchema {
+  collectionName: 'seos';
+  info: {
+    description: '';
+    displayName: 'SEO';
+    pluralName: 'seos';
+    singularName: 'seo';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Auteur: Schema.Attribute.String;
+    Categorie: Schema.Attribute.Enumeration<
+      [
+        'Cr\u00E9ation de Sites Web',
+        'R\u00E9f\u00E9rencement (SEO)',
+        'R\u00E9seaux Sociaux',
+        'Applications Web et Mobiles',
+        'Identit\u00E9 Visuelle & Branding',
+        'Strat\u00E9gie Digitale & Marketing',
+        'Conseils & Tendances',
+        '\u00C9tudes de Cas et T\u00E9moignages',
+      ]
+    > &
+      Schema.Attribute.Required;
+    Contenu: Schema.Attribute.RichText & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Date: Schema.Attribute.Date & Schema.Attribute.Required;
+    excerpt: Schema.Attribute.String & Schema.Attribute.Required;
+    Featured_image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    Keyword: Schema.Attribute.Component<'global.keyword', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::seo.seo'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    SEO: Schema.Attribute.Component<'global.seo', false>;
+    slug: Schema.Attribute.UID & Schema.Attribute.Required;
+    Titre: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -1123,6 +1172,7 @@ declare module '@strapi/strapi' {
       'api::portfolio-app.portfolio-app': ApiPortfolioAppPortfolioApp;
       'api::portfolio-site-web.portfolio-site-web': ApiPortfolioSiteWebPortfolioSiteWeb;
       'api::portfolio-social.portfolio-social': ApiPortfolioSocialPortfolioSocial;
+      'api::seo.seo': ApiSeoSeo;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

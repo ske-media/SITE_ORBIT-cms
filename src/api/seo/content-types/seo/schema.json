@@ -1,0 +1,72 @@
+{
+  "kind": "collectionType",
+  "collectionName": "seos",
+  "info": {
+    "singularName": "seo",
+    "pluralName": "seos",
+    "displayName": "SEO",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Titre": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "required": true
+    },
+    "Contenu": {
+      "type": "richtext",
+      "required": true
+    },
+    "excerpt": {
+      "type": "string",
+      "required": true
+    },
+    "Date": {
+      "type": "date",
+      "required": true
+    },
+    "SEO": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global.seo"
+    },
+    "Keyword": {
+      "type": "component",
+      "repeatable": true,
+      "component": "global.keyword"
+    },
+    "Categorie": {
+      "type": "enumeration",
+      "enum": [
+        "Création de Sites Web",
+        "Référencement (SEO)",
+        "Réseaux Sociaux",
+        "Applications Web et Mobiles",
+        "Identité Visuelle & Branding",
+        "Stratégie Digitale & Marketing",
+        "Conseils & Tendances",
+        "Études de Cas et Témoignages"
+      ],
+      "required": true
+    },
+    "Featured_image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Auteur": {
+      "type": "string"
+    }
+  }
+}

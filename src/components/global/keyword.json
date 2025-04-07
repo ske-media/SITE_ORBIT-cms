@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_global_keywords",
+  "info": {
+    "displayName": "Keyword",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "keyword": {
+      "type": "string"
+    }
+  }
+}

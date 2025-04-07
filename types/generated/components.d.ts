@@ -1,5 +1,16 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface GlobalKeyword extends Struct.ComponentSchema {
+  collectionName: 'components_global_keywords';
+  info: {
+    displayName: 'Keyword';
+    icon: 'bulletList';
+  };
+  attributes: {
+    keyword: Schema.Attribute.String;
+  };
+}
+
 export interface GlobalSeo extends Struct.ComponentSchema {
   collectionName: 'components_global_seos';
   info: {
@@ -18,6 +29,7 @@ export interface GlobalSeo extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'global.keyword': GlobalKeyword;
       'global.seo': GlobalSeo;
     }
   }
